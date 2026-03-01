@@ -1,0 +1,98 @@
+/* This targets the whole page */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fdfdfd;
+    color: #333;
+    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto; /* Centers the content */
+}
+
+/* This styles the title */
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    border-bottom: 2px solid #e67e22;
+    padding-bottom: 10px;
+}
+
+/* This styles the container we made earlier */
+#menu-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* This styles each individual dish */
+.dish-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-left: 5px solid #e67e22;
+}
+
+.dish-card h3 {
+    margin-top: 0;
+    color: #d35400;
+}
+
+.dish-card span {
+    font-weight: bold;
+    color: #27ae60;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+button {
+    padding: 8px 20px;
+    border: 2px solid #e67e22;
+    background: transparent;
+    color: #e67e22;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #e67e22;
+    color: white;
+}
+
+/* This style only applies when a button has the class "active" */
+button.active {
+    background-color: #e67e22;
+    color: white;
+    box-shadow: 0 0 10px rgba(230, 126, 34, 0.5);
+}
+
+.controls {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.search-container {
+    margin-bottom: 20px;
+}
+
+#menu-search {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#menu-search:focus {
+    border-color: #e67e22; /* Changes color when you click into it */
+}
+
