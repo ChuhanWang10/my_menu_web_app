@@ -4,36 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Toy Menu App</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h1>Welcome to My home Restaurant</h1>
+    <h1>Welcome to My Home Restaurant</h1>
 
     <div class="lang-switch">
-        <button id="btn-en" onclick="changeLanguage(event, 'en')">English</button>
-        <button id="btn-zh" class="active" onclick="changeLanguage(event, 'zh')">中文</button>
+        <button data-lang="en">English</button>
+        <button data-lang="zh" class="active">中文</button>
     </div>
 
     <div class="controls">
         <div class="search-container">
-            <input type="text" id="menu-search" placeholder="Search for a dish..." onkeyup="handleSearch()">
+            <input type="text" id="menu-search" placeholder="Search for a dish...">
         </div>
 
         <div class="filter-buttons">
-            <button id="btn-all" class="active" onclick="filterMenu(event, 'all')">All</button>
-            <button id="btn-Mains" onclick="filterMenu(event, 'Mains')">Mains</button>
-            <button id="btn-Sides" onclick="filterMenu(event, 'Sides')">Sides</button>
-            <button id="btn-Desserts" onclick="filterMenu(event, 'Desserts')">Desserts</button>
-            <button id="btn-Drinks" onclick="filterMenu(event, 'Drinks')">Drinks</button>
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="Brunch">Brunch</button>
+            
+            <div class="dropdown">
+                <button class="filter-btn" data-filter="Dinner">Dinner</button>
+                <div class="dropdown-content">
+                    <button class="filter-btn" data-filter="Mains">Mains</button>
+                    <button class="filter-btn" data-filter="Sides">Sides</button>
+                </div>
+            </div>
+
+            <button class="filter-btn" data-filter="Dessert">Dessert</button>
+            <button class="filter-btn" data-filter="Drinks">Drinks</button>
+            <button class="filter-btn" data-filter="Seasonal specials">Seasonal specials</button>
         </div>
     </div>
 
     <div id="menu-container"></div>
 
-    <script src="data.js"></script>
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 
 </body>
 </html>

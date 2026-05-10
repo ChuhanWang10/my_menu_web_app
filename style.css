@@ -12,7 +12,7 @@ body {
 h1 {
     text-align: center;
     color: #2c3e50;
-    border-bottom: 2px solid #e67e22;
+    border-bottom: 2px solid #dbd8d5;
     padding-bottom: 10px;
 }
 
@@ -29,12 +29,12 @@ h1 {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    border-left: 5px solid #e67e22;
+    border-left: 5px solid #cec8c2;
 }
 
 .dish-card h3 {
     margin-top: 0;
-    color: #d35400;
+    color: #9dc6d2;
 }
 
 .dish-card span {
@@ -42,18 +42,76 @@ h1 {
     color: #27ae60;
 }
 
+.dish-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.rating-stars {
+    color: #f1c40f; /* Nice Gold color */
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Optional: add a slight animation when they appear */
+.rating-stars {
+    animation: popIn 0.3s ease-out;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0); }
+    80% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
 .filter-buttons {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 15px;
     margin-bottom: 30px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* The Hidden Menu */
+.dropdown-content {
+    display: none; /* Hidden by default */
+    position: absolute;
+    background-color: white;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+    z-index: 1;
+    border-radius: 8px;
+    padding: 10px;
+    top: 100%; /* Sits right below the parent button */
+    left: 50%;
+    transform: translateX(-50%); /* Centers the dropdown */
+}
+
+/* Show the menu on hover */
+.dropdown:hover .dropdown-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Ensure sub-buttons look consistent */
+.dropdown-content button {
+    width: 100%;
+    white-space: nowrap;
 }
 
 button {
     padding: 8px 20px;
-    border: 2px solid #e67e22;
+    border: 2px solid #987455;
     background: transparent;
-    color: #e67e22;
+    color: #9dc6d2;
     border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
@@ -61,13 +119,13 @@ button {
 }
 
 button:hover {
-    background: #e67e22;
+    background: #9dc6d2;
     color: white;
 }
 
 /* This style only applies when a button has the class "active" */
 button.active {
-    background-color: #e67e22;
+    background-color: hsl(30, 5%, 77%);
     color: white;
     box-shadow: 0 0 10px rgba(230, 126, 34, 0.5);
 }
@@ -79,6 +137,30 @@ button.active {
 
 .search-container {
     margin-bottom: 20px;
+}
+
+.no-results {
+    text-align: center;
+    padding: 40px;
+    color: #888;
+    font-style: italic;
+    background: #f0f0f0;
+    border-radius: 8px;
+}
+
+.category-group {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border-left: 3px solid #eee;
+    padding-left: 15px;
+}
+
+.category-group strong {
+    min-width: 80px;
+    color: #666;
 }
 
 #menu-search {
@@ -93,6 +175,7 @@ button.active {
 }
 
 #menu-search:focus {
-    border-color: #e67e22; /* Changes color when you click into it */
+    border-color: #5085c6; /* Changes color when you click into it */
 }
+
 

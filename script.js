@@ -1,92 +1,117 @@
+// 1. Data Import (Assuming you switched index.html to type="module")
+// If not using modules yet, 'myMenu' will be available globally from data.js
+import { myMenu } from './data.js'; 
 
-let currentLang = 'zh'; // Default language
+/**
+ * 2. Centralized Application State
+ * Keeping everything in one object makes it easier to track and debug.
+ */
+const state = {
+    lang: 'zh',
+    parent: 'all',
+    sub: 'all',
+    search: '',
+};
 
-// 2. Find the "Plate" (The HTML container)
+// 3. Cache DOM Elements (Performance: Find them once, use many times)
 const menuContainer = document.getElementById('menu-container');
+const searchInput = document.getElementById('menu-search');
+const langButtons = document.querySelectorAll('.lang-switch button');
+const filterButtons = document.querySelectorAll('.filter-buttons button');
 
 
-// 1. Create a function to display the items
-function displayMenuItems(menuList) {
-  // Clear the container first so we don't just keep adding more items
-  menuContainer.innerHTML = "";
+/**
+ * 4. The "Single Source of Truth" Render Function
+ * This function handles ALL drawing logic based on the current state.
+ */
 
-  menuList.forEach(dish => {
-    const dishHTML = `
-      <div class="dish-card">
-        <h3>${dish.name[currentLang]}</h3> <p>${dish.description[currentLang]}</p>
-      </div>
-    `;
-    menuContainer.innerHTML += dishHTML;
-  });
-}
-
-function updateActiveButton(containerSelector, clickedButton) {
-    // 1. Find all buttons inside the specific container (filters or lang-switch)
-    const buttons = document.querySelectorAll(`${containerSelector} button`);
+/**
+ * Helper to generate star HTML based on rating number.
+ * @param {number} count - 1, 2, or 3
+ * @returns {string} HTML string of stars
+ */
+const getStarsHTML = (count) => {
+    if (!count) return ''; // Return empty string if no rating
     
-    // 2. Remove "active" class from all of them
-    buttons.forEach(btn => btn.classList.remove('active'));
-    
-    // 3. Add "active" class to the one we clicked
-    clickedButton.classList.add('active');
-}
+    // Create an array of length 'count' and fill it with star symbols
+    // .repeat() is a clean modern JS way to do this
+    return `<div class="rating-stars">${'★'.repeat(count)}</div>`;
+};
 
-function changeLanguage(event, lang) {
-const clickedBtn = event.currentTarget;
-    updateActiveButton('.lang-switch', clickedBtn);
+const render = () => {
+    // A. Filter Logic (Declarative style)
+    const filteredList = myMenu.filter(dish => {
+        const matchesFilter = state.filter === 'all' || dish.categories.includes(state.filter);
+        const matchesSearch = 
+            dish.name.en.toLowerCase().includes(state.search) || 
+            dish.name.zh.includes(state.search);
+        
+        return matchesFilter && matchesSearch;
+    });
 
-    currentLang = lang;
-    displayMenuItems(myMenu);
-}
+    // B. Handle Empty State
+    if (filteredList.length === 0) {
+        menuContainer.innerHTML = `
+            <div class="no-results">
+                <p>Sorry, no dishes found! / 抱歉，未找到相关菜品。</p>
+            </div>
+        `;
+        return;
+    }
 
-// 2. Create the Filter Logic
-function filterMenu(event, category) {
-  
-  // Logic for the visual button change
-  const clickedBtn = event.currentTarget; // 'event' is a built-in browser tool
-  updateActiveButton('.filter-buttons', clickedBtn);
+    // C. Render Items (Best Practice: String mapping is faster than innerHTML += in a loop)
+    menuContainer.innerHTML = filteredList.map(dish => `
+        <div class="dish-card">
+        <div class="dish-header">
+            <h3>${dish.name[state.lang]}</h3>
+            ${getStarsHTML(dish.rating)} </div>
+            <p>${dish.description[state.lang]}</p>
+        </div>
+    `).join('');
+};
 
-  if (category === 'all') {
-    displayMenuItems(myMenu);
-  } else {
-    // Look through the menu and only keep items that match the category
-    const filteredItems = myMenu.filter(dish => dish.category === category);
-    displayMenuItems(filteredItems);
-  }
-  if (category === 'Mains') {
-    const filteredItems = myMenu.filter(dish => dish.category === 'Mains');
-    displayMenuItems(filteredItems);
-  } else if (category === 'Sides') {
-    const filteredItems = myMenu.filter(dish => dish.category === 'Sides');
-    displayMenuItems(filteredItems);
-  } else if (category === 'Desserts') {
-    const filteredItems = myMenu.filter(dish => dish.category === 'Desserts');
-    displayMenuItems(filteredItems);
-  } else if (category === 'Drinks') { 
-    const filteredItems = myMenu.filter(dish => dish.category === 'Drinks');
-    displayMenuItems(filteredItems);
-  }
-}
+/**
+ * 5. Event Listeners (Separation of Concerns)
+ * We attach logic here instead of inside the HTML tags.
+ */
 
-function handleSearch() {
-  // 1. Get the text the user typed (and make it lowercase)
-  const searchTerm = document.getElementById('menu-search').value.toLowerCase();
-  
-  const searchedItems = myMenu.filter(dish => {
-    // Check English name OR Chinese name
-    return dish.name.en.toLowerCase().includes(searchTerm) || 
-           dish.name.zh.includes(searchTerm);
-  });
-
-  // 3. Display the results!
-  displayMenuItems(searchedItems);
-}
-
-// 3. Initial call to show all items when page loads
-document.addEventListener('DOMContentLoaded', () => {
-    console.log("DOM fully loaded and parsed. Starting the app...");
-    displayMenuItems(myMenu); 
-    // You can put all your setup logic here
+// Search Logic
+searchInput.addEventListener('input', (e) => {
+    state.search = e.target.value.toLowerCase();
+    render();
 });
 
-console.log("Menu app is ready!");
+// Category Filter Logic (Using Data Attributes)
+// NOTE: For this to work, update your HTML buttons to have data-parent and data-sub
+
+filterButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        // Update State
+        state.filter = e.currentTarget.dataset.filter;
+
+        // Update UI Visuals
+        filterButtons.forEach(b => b.classList.remove('active'));
+        e.currentTarget.classList.add('active');
+
+        render();
+    });
+});
+
+// Language Logic
+langButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        const lang = e.currentTarget.dataset.lang;
+        state.lang = lang;
+
+        langButtons.forEach(b => b.classList.remove('active'));
+        e.currentTarget.classList.add('active');
+
+        render();
+    });
+});
+
+// 6. Initialize App
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("App initialized.");
+    render();
+});
