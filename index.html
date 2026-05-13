@@ -1,46 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Toy Menu App</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="A polished bilingual home restaurant menu for friends and family.">
+    <title>My Home Restaurant</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <header class="site-header">
+        <nav class="topbar" aria-label="主导航" data-i18n-aria="primaryNavLabel">
+            <a class="brand" href="./" data-i18n="brand">My Home Restaurant</a>
 
-    <h1>Welcome to My Home Restaurant</h1>
+            <div class="lang-switch" role="group" aria-label="选择语言" data-i18n-aria="languageSwitcherLabel">
+                <button class="lang-btn" type="button" data-lang="zh" aria-pressed="true">中文</button>
+                <button class="lang-btn" type="button" data-lang="en" aria-pressed="false">English</button>
+            </div>
+        </nav>
 
-    <div class="lang-switch">
-        <button data-lang="en">English</button>
-        <button data-lang="zh" class="active">中文</button>
-    </div>
+        <section class="hero" aria-labelledby="hero-title">
+            <p class="eyebrow" data-i18n="eyebrow">今晚菜单</p>
+            <h1 id="hero-title" data-i18n="heroTitle">我的家庭餐厅</h1>
+            <p class="hero-copy" data-i18n="heroSubtitle">
+                今晚做几道熟悉的菜，热一点、慢一点，一起坐下来吃。
+            </p>
 
-    <div class="controls">
-        <div class="search-container">
-            <input type="text" id="menu-search" placeholder="Search for a dish...">
-        </div>
-
-        <div class="filter-buttons">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="Brunch">Brunch</button>
-            
-            <div class="dropdown">
-                <button class="filter-btn" data-filter="Dinner">Dinner</button>
-                <div class="dropdown-content">
-                    <button class="filter-btn" data-filter="Mains">Mains</button>
-                    <button class="filter-btn" data-filter="Sides">Sides</button>
+            <div class="hero-stats" aria-label="菜单概览" data-i18n-aria="menuSummaryLabel">
+                <div>
+                    <strong id="total-dishes">0</strong>
+                    <span data-i18n="dishCountLabel">道菜</span>
+                </div>
+                <div>
+                    <strong id="top-picks">0</strong>
+                    <span data-i18n="topPicksLabel">推荐</span>
                 </div>
             </div>
+        </section>
+    </header>
 
-            <button class="filter-btn" data-filter="Dessert">Dessert</button>
-            <button class="filter-btn" data-filter="Drinks">Drinks</button>
-            <button class="filter-btn" data-filter="Seasonal specials">Seasonal specials</button>
-        </div>
-    </div>
+    <main class="app-shell">
+        <section class="controls-panel" aria-label="菜单搜索和筛选" data-i18n-aria="menuControlsLabel">
+            <div class="search-field">
+                <label for="menu-search" data-i18n="searchLabel">搜索菜单</label>
+                <input
+                    id="menu-search"
+                    type="search"
+                    autocomplete="off"
+                    spellcheck="false"
+                    data-i18n-placeholder="searchPlaceholder"
+                    placeholder="搜索菜名、食材或标签"
+                >
+            </div>
 
-    <div id="menu-container"></div>
+            <div class="filter-section">
+                <p class="controls-label" data-i18n="filterLabel">分类</p>
+                <div
+                    id="category-filters"
+                    class="filter-buttons"
+                    role="list"
+                    aria-label="按分类筛选菜品"
+                    data-i18n-aria="categoryFiltersLabel"
+                ></div>
+            </div>
+        </section>
 
-    <script type="module" src="script.js"></script>
+        <section class="results-bar" aria-live="polite">
+            <p id="result-summary"></p>
+            <button id="clear-filters" class="secondary-button" type="button" data-i18n="clearFilters" hidden>
+                清除筛选
+            </button>
+        </section>
 
+        <ul id="menu-container" class="menu-grid" aria-live="polite"></ul>
+    </main>
+
+    <footer class="site-footer">
+        <p data-i18n="footerText">家里做，桌上分享。</p>
+    </footer>
+
+    <script type="module" src="./script.js"></script>
 </body>
 </html>

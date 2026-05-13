@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Brown sugar panna cotta</title>
+  <desc id="desc">A stylized glass cup of panna cotta with brown sugar syrup and nuts.</desc>
+  <rect width="1200" height="900" fill="#f1f0f4"/>
+  <rect x="88" y="88" width="1024" height="724" rx="34" fill="#ffffff"/>
+  <ellipse cx="600" cy="646" rx="280" ry="70" fill="#e7e1d6"/>
+  <path d="M424 318h352l-44 320c-8 58-58 102-118 102h-28c-60 0-110-44-118-102z" fill="#e7eef2" stroke="#9fb3be" stroke-width="18"/>
+  <path d="M458 408h284l-30 220c-6 42-42 74-86 74h-52c-44 0-80-32-86-74z" fill="#fff3df"/>
+  <path d="M462 396c72 38 132-36 212 2 34 16 54 18 72 6l-12 88c-70 26-140-26-210 2-32 12-54 12-76 0z" fill="#8d4d2a"/>
+  <path d="M496 430c54 30 104-18 164 8 36 16 58 12 78 0l-8 58c-54 20-112-16-168 4-30 12-54 8-76-6z" fill="#b76635"/>
+  <g fill="#6f4b2c">
+    <circle cx="526" cy="364" r="20"/>
+    <circle cx="600" cy="342" r="18"/>
+    <circle cx="674" cy="366" r="20"/>
+  </g>
+  <g fill="#d7aa61">
+    <circle cx="560" cy="374" r="9"/>
+    <circle cx="638" cy="354" r="8"/>
+    <circle cx="704" cy="386" r="8"/>
+  </g>
+</svg>

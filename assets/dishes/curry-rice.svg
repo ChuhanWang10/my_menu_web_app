@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Curry rice</title>
+  <desc id="desc">A stylized plate of rice with curry sauce and vegetables.</desc>
+  <rect width="1200" height="900" fill="#f1f3ee"/>
+  <rect x="88" y="88" width="1024" height="724" rx="34" fill="#ffffff"/>
+  <ellipse cx="600" cy="514" rx="378" ry="218" fill="#334238"/>
+  <ellipse cx="600" cy="472" rx="328" ry="174" fill="#fff7e6"/>
+  <path d="M610 350c164 18 286 112 270 226-16 110-154 156-298 122-100-24-154-90-128-178 24-84 62-178 156-170z" fill="#c47a2b"/>
+  <path d="M354 438c90-104 230-112 314-42-44 108-142 176-276 160-68-8-90-60-38-118z" fill="#f7f3e1"/>
+  <g fill="#e5823e">
+    <rect x="682" y="456" width="62" height="62" rx="12" transform="rotate(14 713 487)"/>
+    <rect x="774" y="560" width="58" height="58" rx="12" transform="rotate(-18 803 589)"/>
+  </g>
+  <g fill="#e8c05b">
+    <rect x="596" y="558" width="72" height="60" rx="14" transform="rotate(18 632 588)"/>
+    <rect x="744" y="392" width="64" height="56" rx="14" transform="rotate(-12 776 420)"/>
+  </g>
+  <g fill="#7ba357">
+    <circle cx="818" cy="492" r="20"/>
+    <circle cx="642" cy="430" r="18"/>
+    <circle cx="706" cy="640" r="16"/>
+  </g>
+  <g fill="#fffaf0">
+    <circle cx="430" cy="470" r="14"/>
+    <circle cx="510" cy="430" r="13"/>
+    <circle cx="522" cy="542" r="15"/>
+  </g>
+</svg>

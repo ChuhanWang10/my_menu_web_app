@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Sausage mushroom rice</title>
+  <desc id="desc">A stylized bowl of rice with sausage, mushrooms, and scallions.</desc>
+  <rect width="1200" height="900" fill="#eef1f4"/>
+  <rect x="88" y="88" width="1024" height="724" rx="34" fill="#ffffff"/>
+  <ellipse cx="600" cy="530" rx="360" ry="210" fill="#223243"/>
+  <ellipse cx="600" cy="488" rx="318" ry="168" fill="#f3eee1"/>
+  <g fill="#f7f2df">
+    <circle cx="442" cy="470" r="26"/>
+    <circle cx="520" cy="410" r="22"/>
+    <circle cx="610" cy="520" r="24"/>
+    <circle cx="720" cy="456" r="26"/>
+    <circle cx="780" cy="560" r="22"/>
+    <circle cx="540" cy="594" r="24"/>
+  </g>
+  <g fill="#b84f35">
+    <rect x="430" y="536" width="118" height="52" rx="26" transform="rotate(18 489 562)"/>
+    <rect x="624" y="380" width="126" height="54" rx="27" transform="rotate(-20 687 407)"/>
+    <rect x="700" y="578" width="112" height="52" rx="26" transform="rotate(14 756 604)"/>
+  </g>
+  <g fill="#9d7d58" stroke="#5f4733" stroke-width="10">
+    <path d="M492 388c58-50 116-8 90 56-54 14-104-4-90-56z"/>
+    <path d="M792 462c60-46 112 2 82 62-54 8-100-12-82-62z"/>
+    <path d="M586 612c62-42 112 10 76 66-54 6-96-18-76-66z"/>
+  </g>
+  <g stroke="#2f8f64" stroke-width="16" stroke-linecap="round">
+    <path d="M386 440l72 34"/>
+    <path d="M648 566l82 28"/>
+    <path d="M760 376l78-30"/>
+  </g>
+</svg>

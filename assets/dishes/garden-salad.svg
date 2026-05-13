@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Garden salad</title>
+  <desc id="desc">A stylized plate of greens with tomato and cucumber.</desc>
+  <rect width="1200" height="900" fill="#edf4f0"/>
+  <rect x="88" y="88" width="1024" height="724" rx="34" fill="#ffffff"/>
+  <ellipse cx="600" cy="510" rx="380" ry="220" fill="#f6f8f3"/>
+  <ellipse cx="600" cy="510" rx="320" ry="170" fill="#dfead6"/>
+  <g fill="#3f8c54">
+    <path d="M370 460c72-90 172-80 214 12-90 56-172 52-214-12z"/>
+    <path d="M540 398c96-74 196-32 210 72-104 34-178 10-210-72z"/>
+    <path d="M652 536c86-92 196-70 230 26-92 58-178 46-230-26z"/>
+    <path d="M430 572c94-48 168-12 188 78-100 22-166-4-188-78z"/>
+  </g>
+  <g fill="#d9503e">
+    <circle cx="454" cy="520" r="44"/>
+    <circle cx="752" cy="438" r="42"/>
+    <circle cx="670" cy="620" r="40"/>
+  </g>
+  <g fill="#b9d68b" stroke="#6a9b58" stroke-width="10">
+    <circle cx="554" cy="488" r="38"/>
+    <circle cx="814" cy="548" r="36"/>
+    <circle cx="490" cy="620" r="34"/>
+  </g>
+  <g fill="#f0c253">
+    <circle cx="620" cy="408" r="10"/>
+    <circle cx="710" cy="530" r="9"/>
+    <circle cx="558" cy="586" r="8"/>
+    <circle cx="802" cy="636" r="9"/>
+  </g>
+</svg>

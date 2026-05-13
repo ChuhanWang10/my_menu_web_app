@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Scallion egg toast</title>
+  <desc id="desc">A stylized toast with soft egg, scallions, sesame, and chili crisp.</desc>
+  <rect width="1200" height="900" fill="#eef3f1"/>
+  <rect x="88" y="88" width="1024" height="724" rx="34" fill="#ffffff"/>
+  <ellipse cx="600" cy="554" rx="360" ry="190" fill="#2b3833"/>
+  <rect x="402" y="326" width="396" height="296" rx="46" fill="#d18a36"/>
+  <rect x="436" y="360" width="328" height="228" rx="34" fill="#f0b85f"/>
+  <ellipse cx="604" cy="470" rx="142" ry="108" fill="#fff9e8"/>
+  <circle cx="620" cy="480" r="54" fill="#efb735"/>
+  <g stroke="#287a4d" stroke-width="14" stroke-linecap="round">
+    <path d="M472 396l92 44"/>
+    <path d="M692 390l-102 64"/>
+    <path d="M500 540l150-28"/>
+    <path d="M708 542l-92-52"/>
+  </g>
+  <g fill="#b84f35">
+    <circle cx="520" cy="476" r="12"/>
+    <circle cx="700" cy="456" r="10"/>
+    <circle cx="664" cy="566" r="11"/>
+    <circle cx="574" cy="374" r="9"/>
+  </g>
+  <g fill="#fff2cd">
+    <circle cx="548" cy="424" r="7"/>
+    <circle cx="736" cy="512" r="6"/>
+    <circle cx="488" cy="546" r="7"/>
+  </g>
+</svg>
